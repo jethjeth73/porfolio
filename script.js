@@ -787,5 +787,30 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Resume Download Functionality - Let browser handle download naturally
-// The download button already has href="assets/Jonel_Magcayang_Resume.pdf" and download attribute
+// Resume Download Functionality - Ensure download works
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadBtn = document.getElementById('downloadResume');
+    
+    if (downloadBtn) {
+        // Force download functionality
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent any default behavior
+            
+            // Create a new download link to avoid any caching issues
+            const link = document.createElement('a');
+            link.href = 'assets/Jonel_Magcayang_Resume.pdf?' + new Date().getTime(); // Add timestamp to avoid cache
+            link.download = 'Jonel_Magcayang_Resume.pdf';
+            link.style.display = 'none';
+            
+            // Add to DOM, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Show notification if available
+            if (typeof showNotification !== 'undefined') {
+                showNotification('Resume download started!', 'success');
+            }
+        });
+    }
+});
