@@ -708,26 +708,26 @@ document.addEventListener('DOMContentLoaded', function() {
 const style = document.createElement('style');
 style.textContent = `
     .nav-link.active {
-        color: #2563eb !important;
+        color: #000000 !important;
     }
     .nav-link.active::after {
         width: 100% !important;
     }    .project-details h4 {
-        color: #2563eb;
+        color: #000000;
         font-size: 1.25rem;
         margin: 1.5rem 0 1rem 0;
         font-weight: 600;
     }
     
     .project-details h5 {
-        color: #1f2937;
+        color: #000000;
         font-size: 1.1rem;
         margin: 1rem 0 0.5rem 0;
         font-weight: 600;
     }
     
     .project-details h6 {
-        color: #2563eb;
+        color: #333333;
         font-size: 1rem;
         margin: 0.5rem 0 0.25rem 0;
         font-weight: 600;
@@ -751,8 +751,8 @@ style.textContent = `
     }
     
     .tech-tag {
-        background: #e0e7ff;
-        color: #3730a3;
+        background: #e0e0e0;
+        color: #000000;
         padding: 0.5rem 1rem;
         border-radius: 20px;
         font-size: 0.875rem;
@@ -767,10 +767,10 @@ style.textContent = `
     }
     
     .design-category {
-        background: #f8fafc;
+        background: #f5f5f5;
         padding: 1rem;
         border-radius: 8px;
-        border-left: 4px solid #2563eb;
+        border-left: 4px solid #000000;
     }
     
     .app-showcase {
@@ -780,7 +780,7 @@ style.textContent = `
     .app-design {
         margin-bottom: 1.5rem;
         padding: 1rem;
-        background: #f8fafc;
+        background: #f5f5f5;
         border-radius: 8px;
     }
     
@@ -792,10 +792,38 @@ style.textContent = `
     }
     
     .step {
-        background: #f8fafc;
+        background: #f5f5f5;
         padding: 1rem;
         border-radius: 8px;
         text-align: center;
     }
 `;
 document.head.appendChild(style);
+
+// Resume Download Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadBtn = document.getElementById('downloadResume');
+    
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+            // Check if file exists by trying to fetch it
+            const resumePath = 'assets/Jonel_Magcayang_Resume.pdf';
+            
+            fetch(resumePath, { method: 'HEAD' })
+                .then(response => {
+                    if (response.ok) {
+                        // File exists, proceed with download
+                        console.log('Resume download initiated');
+                    } else {
+                        // File doesn't exist, show message
+                        e.preventDefault();
+                        alert('Resume file is currently being updated. Please contact me directly at magcayangjonel25@gmail.com for my latest resume.');
+                    }
+                })
+                .catch(error => {
+                    // Network error or file not found
+                    console.log('Resume file check failed, allowing default download behavior');
+                });
+        });
+    }
+});
