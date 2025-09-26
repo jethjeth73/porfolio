@@ -338,20 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Download resume functionality
-    const downloadResumeBtn = document.getElementById('downloadResume');
-    downloadResumeBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // You can replace this with actual resume file
-        alert('Resume download will be available soon. Please contact me directly for now.');
-        
-        // Example of how to implement actual download:
-        // const link = document.createElement('a');
-        // link.href = 'path/to/your/resume.pdf';
-        // link.download = 'Jonel_Magcayang_Resume.pdf';
-        // link.click();
-    });
+    // Download resume functionality - removed old handler
 
     // Intersection Observer for scroll animations
     const observerOptions = {
@@ -800,30 +787,5 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Resume Download Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const downloadBtn = document.getElementById('downloadResume');
-    
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', function(e) {
-            // Check if file exists by trying to fetch it
-            const resumePath = 'assets/Jonel_Magcayang_Resume.pdf';
-            
-            fetch(resumePath, { method: 'HEAD' })
-                .then(response => {
-                    if (response.ok) {
-                        // File exists, proceed with download
-                        console.log('Resume download initiated');
-                    } else {
-                        // File doesn't exist, show message
-                        e.preventDefault();
-                        alert('Resume file is currently being updated. Please contact me directly at magcayangjonel25@gmail.com for my latest resume.');
-                    }
-                })
-                .catch(error => {
-                    // Network error or file not found
-                    console.log('Resume file check failed, allowing default download behavior');
-                });
-        });
-    }
-});
+// Resume Download Functionality - Let browser handle download naturally
+// The download button already has href="assets/Jonel_Magcayang_Resume.pdf" and download attribute

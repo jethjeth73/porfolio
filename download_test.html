@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        .test-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px;
+        }
+        .test-btn:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resume Download Test</h1>
+    <p>Click the buttons below to test different download methods:</p>
+    
+    <!-- Method 1: Direct link with download attribute -->
+    <a href="assets/Jonel_Magcayang_Resume.pdf" download="Jonel_Magcayang_Resume.pdf" class="test-btn">
+        Direct Download Link
+    </a>
+    
+    <!-- Method 2: JavaScript click -->
+    <button class="test-btn" onclick="downloadWithJS()">
+        JavaScript Download
+    </button>
+    
+    <!-- Method 3: Open in new tab -->
+    <a href="assets/Jonel_Magcayang_Resume.pdf" target="_blank" class="test-btn">
+        Open in New Tab
+    </a>
+
+    <script>
+        function downloadWithJS() {
+            const link = document.createElement('a');
+            link.href = 'assets/Jonel_Magcayang_Resume.pdf';
+            link.download = 'Jonel_Magcayang_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            alert('Download initiated!');
+        }
+    </script>
+</body>
+</html>
