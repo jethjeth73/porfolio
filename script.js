@@ -19,7 +19,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', function() {
+    window.addEventL`);
+document.head.appendChild(style);
+
+// Universal modal close button handler
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('modal-close') || e.target.innerHTML === '×') {
+        const modal = e.target.closest('.modal');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    }
+});', function() {
         if (window.scrollY > 100) {
             navbar.classList.add('scrolled');
         } else {
@@ -263,7 +275,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Modal close handlers
-    closeBtn.addEventListener('click', closeModal);
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    
+    // Handle all modal close buttons
+    document.querySelectorAll('.modal-close').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+    
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
             closeModal();
@@ -329,7 +355,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, function(error) {
             console.error('EmailJS error:', error);
             // Fallback: mailto link
-            const mailtoLink = `mailto:magcayangjonel25@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+            const mailtoLink = `mailto:magcayangjonel25@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent('Name: ' + formData.name + '\nEmail: ' + formData.email + '\n\nMessage:\n' + formData.message)}`;
             window.location.href = mailtoLink;
             showNotification('Opening your email client...', 'info');
         }).finally(() => {
@@ -786,6 +812,19 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+});
+
+// Universal modal close button handler
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('modal-close') || e.target.innerHTML === '×') {
+        const modal = e.target.closest('.modal');
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    }
+});
 
 // Resume Download Functionality - Ensure download works
 document.addEventListener('DOMContentLoaded', function() {
