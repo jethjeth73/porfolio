@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonel H. Magcayang - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class=    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal certificate-modal">
+        <div class="modal-content certificate-modal-content">
+            <div class="modal-header">
+                <h3 id="certificateModalTitle">Certificate</h3>
+                <span class="modal-close" onclick="closeCertificateModal()">&times;</span>
+            </div>
+            <div class="modal-body certificate-modal-body">
+                <img id="certificateModalImage" src="" alt="Certificate" class="certificate-full-image">
+                <div class="certificate-modal-info">
+                    <h4 id="certificateModalName"></h4>
+                    <p id="certificateModalIssuer"></p>
+                    <span id="certificateModalDate"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">JHM</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#resume" class="nav-link">Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#certificates" class="nav-link">Certificates</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="fade-in-up">Hello, I'm</span>
+                    <span class="fade-in-up delay-1">Jonel H. Magcayang</span>
+                </h1>
+                <p class="hero-subtitle fade-in-up delay-2">Full Stack Developer & IT Professional</p>
+                <p class="hero-description fade-in-up delay-3">
+                    Passionate about creating innovative web and mobile solutions with expertise in 
+                    multi-factor authentication, health record management systems, and modern web technologies.
+                </p>
+                <div class="hero-buttons fade-in-up delay-4">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/profile/profile.jpg" alt="Jonel H. Magcayang" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="image-placeholder" style="display: none;">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <p class="section-subtitle">A showcase of my work in web and mobile development</p>
+            
+            <div class="projects-grid">
+                <!-- Enhanced Health Record Management System -->
+                <div class="project-card" data-project="health-record">
+                    <div class="project-image">
+                        <div class="project-slideshow">
+                            <!-- Slide 1 -->
+                            <div class="slide active">
+                                <img src="images/projects/health-record/health-1.jpg" alt="Health Record Dashboard" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-placeholder" style="display: none;">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="slide">
+                                <img src="images/projects/health-record/health-2.jpg" alt="Patient Management" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-placeholder" style="display: none;">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="slide">
+                                <img src="images/projects/health-record/health-3.jpg" alt="Authentication System" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-placeholder" style="display: none;">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation buttons -->
+                            <button class="slideshow-nav slideshow-prev" onclick="changeSlide(this, -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="slideshow-nav slideshow-next" onclick="changeSlide(this, 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            
+                            <!-- Dots indicator -->
+                            <div class="slideshow-controls">
+                                <div class="slideshow-dot active" onclick="currentSlide(this, 1)"></div>
+                                <div class="slideshow-dot" onclick="currentSlide(this, 2)"></div>
+                                <div class="slideshow-dot" onclick="currentSlide(this, 3)"></div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="btn-view-project">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Enhanced Health Record Management System</h3>
+                        <p>Multi-factor authentication system for Bulacan State University</p>
+                        <div class="project-tags">
+                            <span class="tag">Web Development</span>
+                            <span class="tag">Authentication</span>
+                            <span class="tag">Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Korean Mart Web Application -->
+                <div class="project-card" data-project="korean-mart">
+                    <div class="project-image">
+                        <div class="project-slideshow">
+                            <!-- Slide 1 -->
+                            <div class="slide active">
+                                <img src="images/projects/korean-mart/mart-1.jpg" alt="Korean Mart Homepage" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-placeholder" style="display: none;">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="slide">
+                                <img src="images/projects/korean-mart/mart-2.jpg" alt="Admin Dashboard" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-placeholder" style="display: none;">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="slide">
+                                <img src="images/projects/korean-mart/mart-3.jpg" alt="Shopping Cart" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-placeholder" style="display: none;">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation buttons -->
+                            <button class="slideshow-nav slideshow-prev" onclick="changeSlide(this, -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="slideshow-nav slideshow-next" onclick="changeSlide(this, 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            
+                            <!-- Dots indicator -->
+                            <div class="slideshow-controls">
+                                <div class="slideshow-dot active" onclick="currentSlide(this, 1)"></div>
+                                <div class="slideshow-dot" onclick="currentSlide(this, 2)"></div>
+                                <div class="slideshow-dot" onclick="currentSlide(this, 3)"></div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="btn-view-project">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Korean Mart Web Application</h3>
+                        <p>Multi-role e-commerce system with admin and customer access</p>
+                        <div class="project-tags">
+                            <span class="tag">E-commerce</span>
+                            <span class="tag">Multi-role</span>
+                            <span class="tag">CRUD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Health Record App -->
+                <div class="project-card" data-project="mobile-health">
+                    <div class="project-image">
+                        <div class="project-slideshow">
+                            <!-- Slide 1 -->
+                            <div class="slide active">
+                                <img src="images/projects/mobile-health/mobile-1.jpg" alt="Mobile App Interface" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-placeholder" style="display: none;">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="slide">
+                                <img src="images/projects/mobile-health/mobile-2.jpg" alt="Biometric Login" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-placeholder" style="display: none;">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="slide">
+                                <img src="images/projects/mobile-health/mobile-3.jpg" alt="AI Chat Assistant" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-placeholder" style="display: none;">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation buttons -->
+                            <button class="slideshow-nav slideshow-prev" onclick="changeSlide(this, -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="slideshow-nav slideshow-next" onclick="changeSlide(this, 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            
+                            <!-- Dots indicator -->
+                            <div class="slideshow-controls">
+                                <div class="slideshow-dot active" onclick="currentSlide(this, 1)"></div>
+                                <div class="slideshow-dot" onclick="currentSlide(this, 2)"></div>
+                                <div class="slideshow-dot" onclick="currentSlide(this, 3)"></div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="btn-view-project">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Mobile Health Record Management App</h3>
+                        <p>Cross-platform mobile application with AI-powered chat assistant</p>
+                        <div class="project-tags">
+                            <span class="tag">Mobile</span>
+                            <span class="tag">AI Integration</span>
+                            <span class="tag">Healthcare</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Samgyupsal POS System -->
+                <div class="project-card" data-project="pos-system">
+                    <div class="project-image">
+                        <div class="project-slideshow">
+                            <!-- Slide 1 -->
+                            <div class="slide active">
+                                <img src="images/projects/pos-system/pos-1.jpg" alt="POS System Dashboard" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-placeholder" style="display: none;">
+                                    <i class="fas fa-cash-register"></i>
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="slide">
+                                <img src="images/projects/pos-system/pos-2.jpg" alt="Inventory Management" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-placeholder" style="display: none;">
+                                    <i class="fas fa-cash-register"></i>
+                                </div>
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="slide">
+                                <img src="images/projects/pos-system/pos-3.jpg" alt="Sales Reports" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="project-placeholder" style="display: none;">
+                                    <i class="fas fa-cash-register"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation buttons -->
+                            <button class="slideshow-nav slideshow-prev" onclick="changeSlide(this, -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="slideshow-nav slideshow-next" onclick="changeSlide(this, 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            
+                            <!-- Dots indicator -->
+                            <div class="slideshow-controls">
+                                <div class="slideshow-dot active" onclick="currentSlide(this, 1)"></div>
+                                <div class="slideshow-dot" onclick="currentSlide(this, 2)"></div>
+                                <div class="slideshow-dot" onclick="currentSlide(this, 3)"></div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="btn-view-project">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Samgyupsal POS & Inventory System</h3>
+                        <p>Point-of-sale and inventory management for Korean restaurant</p>
+                        <div class="project-tags">
+                            <span class="tag">POS System</span>
+                            <span class="tag">Inventory</span>
+                            <span class="tag">Restaurant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+        <div class="container">
+            <h2 class="section-title">Resume / Curriculum Vitae</h2>
+            <div class="resume-container">
+                <div class="resume-content">
+                    <div class="resume-header">
+                        <h3>Jonel H. Magcayang</h3>
+                        <p>Marilao, Bulacan, Region III, Philippines | 0970-756-8682 | magcayangjonel25@gmail.com</p>
+                    </div>
+
+                    <div class="resume-section">
+                        <h4>Objectives</h4>
+                        <p>Aspiring IT professional seeking an internship opportunity to apply skills in back-end development, basic troubleshooting, artificial intelligence, cyber security, and project management. Eager to contribute to efficient, user-focused digital solutions while gaining valuable industry experience.</p>
+                    </div>
+
+                    <div class="resume-section">
+                        <h4>Education</h4>
+                        <div class="education-item">
+                            <div class="education-details">
+                                <h5>Bachelor of Science in Information Technology</h5>
+                                <p>Major in Web and Mobile Application Development</p>
+                                <p>Dean's Lister (AY 2023 - 2025)</p>
+                            </div>
+                            <div class="education-location">
+                                <span>Malolos City, Philippines</span>
+                                <span>2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resume-section">
+                        <h4>Technical Skills</h4>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h5>Programming Languages</h5>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">Java</span>
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">C++</span>
+                                    <span class="skill-tag">PHP</span>
+                                    <span class="skill-tag">Dart</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <h5>Frameworks & Tools</h5>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">React JS</span>
+                                    <span class="skill-tag">Laravel</span>
+                                    <span class="skill-tag">Flutter</span>
+                                    <span class="skill-tag">VS Code</span>
+                                    <span class="skill-tag">Android Studio</span>
+                                    <span class="skill-tag">GitHub</span>
+                                </div>
+                            </div>
+                            <div class="skill-category">
+                                <h5>Databases</h5>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Firebase</span>
+                                    <span class="skill-tag">MySQL</span>
+                                    <span class="skill-tag">SQLite</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resume-actions">
+                        <a href="#" class="btn btn-primary" id="downloadResume">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="certificates-grid">
+                <div class="certificate-card" onclick="openCertificateModal('artificial-intelligence')">
+                    <div class="certificate-image">
+                        <img src="images/certificates/artificial-intelligence.jpg" alt="Artificial Intelligence Fundamentals Certificate" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="certificate-placeholder" style="display: none;">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="certificate-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>View Certificate</span>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <h4>Artificial Intelligence Fundamentals</h4>
+                        <p>Professional Development</p>
+                        <span class="certificate-date">2025</span>
+                    </div>
+                </div>
+
+                <div class="certificate-card" onclick="openCertificateModal('cyber-security')">
+                    <div class="certificate-image">
+                        <img src="images/certificates/cyber-security.jpg" alt="Cyber Security Fundamentals Certificate" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="certificate-placeholder" style="display: none;">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="certificate-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>View Certificate</span>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <h4>Cybersecurity Fundamentals</h4>
+                        <p>Professional Development</p>
+                        <span class="certificate-date">2025</span>
+                    </div>
+                </div>
+
+                <div class="certificate-card" onclick="openCertificateModal('ileap-intellectual-property')">
+                    <div class="certificate-image">
+                        <img src="images/certificates/ileap-intellectual-property.jpg" alt="iLEAP Intellectual Property Certificate" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="certificate-placeholder" style="display: none;">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="certificate-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>View Certificate</span>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <h4>iLEAP Intellectual Property</h4>
+                        <p>iLEAP Program</p>
+                        <span class="certificate-date">2025</span>
+                    </div>
+                </div>
+
+                <div class="certificate-card" onclick="openCertificateModal('microsoft-ai')">
+                    <div class="certificate-image">
+                        <img src="images/certificates/microsoft-ai.jpg" alt="Microsoft AI Course Certificate" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="certificate-placeholder" style="display: none;">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div class="certificate-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>View Certificate</span>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <h4>Microsoft Artificial Intelligence Course (Azure AI Fundamentals)</h4>
+                        <p>Microsoft</p>
+                        <span class="certificate-date">2025</span>
+                    </div>
+                </div>
+
+                <div class="certificate-card" onclick="openCertificateModal('network-troubleshooting')">
+                    <div class="certificate-image">
+                        <img src="images/certificates/network-troubleshooting.jpg" alt="Network Addressing and Basic Troubleshooting Certificate" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="certificate-placeholder" style="display: none;">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="certificate-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>View Certificate</span>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <h4>Network Addressing and Basic Troubleshooting</h4>
+                        <p>Cisco Networking Academy</p>
+                        <span class="certificate-date">2025</span>
+                    </div>
+                </div>
+
+                <div class="certificate-card" onclick="openCertificateModal('salesforce')">
+                    <div class="certificate-image">
+                        <img src="images/certificates/salesforce.jpg" alt="Salesforce Certificate" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="certificate-placeholder" style="display: none;">
+                            <i class="fab fa-salesforce"></i>
+                        </div>
+                        <div class="certificate-overlay">
+                            <i class="fas fa-expand-alt"></i>
+                            <span>View Certificate</span>
+                        </div>
+                    </div>
+                    <div class="certificate-info">
+                        <h4>Salesforce Supported Virtual Internship Program 2025</h4>
+                        <p>Salesforce</p>
+                        <span class="certificate-date">2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/profile/profile.jpg" alt="Jonel H. Magcayang" class="about-profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="about-placeholder" style="display: none;">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Passionate Full Stack Developer</h3>
+                    <p>
+                        I'm Jonel H. Magcayang, a dedicated IT professional from Marilao, Bulacan. Currently pursuing 
+                        a Bachelor of Science in Information Technology with a major in Web and Mobile Application Development, 
+                        I've maintained Dean's List status from 2023-2025.
+                    </p>
+                    <p>
+                        My expertise spans across full-stack development, with particular strength in creating secure, 
+                        user-focused digital solutions. I specialize in multi-factor authentication systems, health record 
+                        management, and modern web technologies including React JS, Laravel, and Flutter.
+                    </p>
+                    <p>
+                        Beyond technical skills, I bring strong leadership qualities, having served as Project Manager 
+                        for multiple capstone projects and actively participating in various organizational roles at 
+                        Bulacan State University.
+                    </p>
+                    
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h4>10+</h4>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h4>5+</h4>
+                            <p>Technologies Mastered</p>
+                        </div>
+                        <div class="stat">
+                            <h4>3+</h4>
+                            <p>Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's discuss your next project</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>magcayangjonel25@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>0970-756-8682</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Marilao, Bulacan, Philippines</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2025 Jonel H. Magcayang. All rights reserved.</p>
+                </div>
+                <div class="footer-right">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal certificate-modal">
+        <div class="modal-content certificate-modal-content">
+            <div class="modal-header">
+                <h3 id="certificateModalTitle">Certificate</h3>
+                <span class="modal-close" onclick="closeCertificateModal()">&times;</span>
+            </div>
+            <div class="modal-body certificate-modal-body">
+                <img id="certificateModalImage" src="" alt="Certificate" class="certificate-full-image">
+                <div class="certificate-modal-info">
+                    <h4 id="certificateModalName"></h4>
+                    <p id="certificateModalIssuer"></p>
+                    <span id="certificateModalDate"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+        })();
+    </script>
+</body>
+</html>
